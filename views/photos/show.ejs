@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<div class="row">
+        <div class="col-12">
+                <div class="card-deck">
+                        <div class="card">
+                                <img class="card-img-top" src="<%= photo.image %>" alt="Card image cap">
+                                <div class="card-body">
+                                <h4 class="card-title"><%= photo.name %></h4>
+                                <p class="card-text"><%= photo.description %></p>
+                                </div>
+                        </div>
+                </div>
+                <div class="card text-center">
+        
+                        <a href="/photos/<%= photo._id %>/comments/new"><button type="button" name="commentButton" class="btn btn-primary">Add New Comment</button></a>
+                        
+                        <ul class="list-group list-group-flush">
+                                <% photo.comments.forEach(function(comment){ %>
+                          <li class="list-group-item"><strong><%= comment.author %></strong> - <%= comment.text %></li>
+                                <% }); %>
+                        </ul>
+                </div>
+        
+        </div>
+
+</div>
+
+
+
+
+
+
+<% include ../partials/footer %>
